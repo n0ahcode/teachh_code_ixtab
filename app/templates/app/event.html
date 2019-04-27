@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="uk-card uk-card-default uk-card-body uk-margin-top ">
+  <table class=".uk-container">
+    {% for code in codes %}
+<tr><td><h1>{{ code.title }}</h1></td></tr>
+<td>{{code.name}}</td>
+  {% for tag in code.tags.all %}
+<td>{{tag}}</td>
+  {% endfor %}
+<tr><td class="uk-text-center"><br>{{code.text}}</td></tr>
+
+    {% endfor %}
+  </table>
+</div>
+
+
+<p><a href="{% url 'index' %}">ホームへ</a></p>
+
+
+{% endblock %}
